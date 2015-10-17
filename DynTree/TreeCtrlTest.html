@@ -1,0 +1,119 @@
+﻿
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script language="JavaScript" src="DynTree.js" type="text/javascript"></script>
+<script language="JavaScript" src="common.js" type="text/javascript"></script>
+<link rel="STYLESHEET" type="text/css" href="dyntree.css"/>
+<style type="text/css">
+.TreeBox {border-width:1px; border: silver solid;top:80;left:80; height:1000px;overflow:hide; font-size:12px}
+.Rect {border: silver solid 1px;overflow:hide; font-size:12px}
+</style>
+
+<script language="JavaScript" type="text/javascript" defer="defer">        
+    function Reply( id )
+    {
+        var reply = prompt( "Reply", "" );
+        var htmlCode = "<div class = Rect >" + reply;
+        htmlCode += "<div class = Rect ><a href=\"javascript:void(0)\" onclick=\"Reply("
+        htmlCode += ID;
+        htmlCode +=  ")\"> 回复</a></div></div>";
+        a.AppendNewNode( ID++, id, "book32.gif", htmlCode );     
+    }
+</script>
+
+</head>
+
+<body>
+<input type="button" value = "Remove Node" onClick="RemoveNode()"/>
+<input type="button" value = "Parent as Root" onClick="ParentAsRoot()"/>
+<input type="button" value = "Insert Performance Test" onClick="InsertPerformanceTest()"/>
+<input type="button" value = "Append Performance Test" onClick="AppendPerformanceTest()"/>
+<input type="button" value = "Add node to selected node" onClick="AddChildToSelected()"/>
+<div id="id" class = "TreeBox"></div>    
+
+<script defer="defer" language="JavaScript" type="text/javascript">        
+    var head = "<div class = Rect >The ";
+    var tail = " Object.<div class = Rect ><a href=\"javascript:void(0)\" onclick=\"Reply(";
+    var par = ")\"> 回复</a></div></div>";
+    
+    var ID = 0;
+    
+    var a = new DynTree( id, "100%","100%");
+    
+    a.AppendNewNode( ID++, 0, "booklist32.gif", head + 0 +tail + 0 + par );
+
+    a.AppendNewNode( ID++, 0, "book32.gif", head + 1 + tail + 1 + par );
+
+    a.AppendNewNode( ID++, 1, "book32.gif", head + 2 + tail + 2 + par ); 
+
+    a.AppendNewNode( ID++, 1, "book32.gif", head + 3 + tail + 3 + par );     
+      
+    a.InsertNewNode( ID++, 0, "book32.gif", head + 4 + tail + 4 + par, 0 ); 
+
+    a.AppendNewNode( ID++, 1, "book32.gif", head + 5 + tail + 5 + par ); 
+        
+    a.AppendNewNode( ID++, 3, "book32.gif", head + 6 + tail + 6 + par ); 
+        
+    a.AppendNewNode( ID++, 3, "book32.gif", head + 7 + tail + 7 + par );   
+        
+    a.AppendNewNode( ID++, 6, "book32.gif", head + 8 + tail + 8 + par ); 
+        
+    a.InsertNewNode( ID++, 6, "book32.gif", head + 9 + tail + 9 + par, 0); 
+    
+    a.AppendNewNode( ID++, 0, "book32.gif", head + 10 + tail + 10 + par );
+ 
+         
+    function RemoveNode()
+    {
+        var n =  a.GetSelectedNode();
+        for ( var i in n )
+            a.RemoveNode(n[i]);
+    } 
+    
+    function AddChildToSelected()
+    {
+        var n =  a.GetSelectedNode();
+        for  ( var i in n )
+        {
+            a.InsertNewNode( ID++, n[i].iNodeId , "book32.gif", head + ID + tail + ID + par, 2 ); 
+        }
+    } 
+    
+    function InsertPerformanceTest()
+    {
+        var html = head + + tail;
+        var time = new Date();
+        var ms = time.getTime();
+        for ( var i=0; i < 100; i++)
+        {
+            a.InsertNewNode( ID++, i%10, "book32.gif", html, 0 );
+        }
+        time = new Date();
+        ms = time.getTime() - ms;
+        alert("Insert 100 items at 0 use " + ms + "ms." );
+    }       
+    
+    function AppendPerformanceTest()
+    {
+        var html = head + + tail;
+        var time = new Date();
+        var ms = time.getTime();
+        for ( var i=0; i < 100; i++)
+        {
+            a.AppendNewNode( ID++, i%10, "book32.gif", html );
+        }
+        time = new Date();
+        ms = time.getTime() - ms;
+        alert("Append 100 items at 0 use " + ms + "ms." );
+    }   
+    
+    // open().document.body.innerText   =   document.documentElement.outerHTML; 
+    
+</script>
+</body>
+</html>
+  
+  

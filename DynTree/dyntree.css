@@ -1,0 +1,21 @@
+/*Table style*/
+.TableContainerStyle { overflow:auto; background-color:white; border: 0px none;position:relative; top:0; font-size : 12px;}
+/*first cell: width and height take no effect*/
+.td1{ width:32px; height:32px; top:0;border:0px none; padding:0; margin:0;font-size:1px; }
+.td1_img{ width:16px; height:16px; top:0; overflow:hidden; border:0px none; padding:0; margin:0;font-size:1px;align:absmiddle;}
+/*second cell: width and height take no effect*/
+.td2{ width:32px; height:32px;top:0; border:0px none; padding:0; margin:0;font-size:1px; }
+.td2_img{ width:32px; height:32px; top:0; overflow:hidden; border:0px none; padding:0; margin:0;font-size:1px;align:absmiddle; }
+/*third cell: width and height take no effect*/
+.td3{ width:32px; height:32px;top:0; border:0px none; padding:0; margin:0;font-size:1px; }
+.td3_img{ max-width:32px; height:32px; top:0; overflow:hidden; border:0px none; padding:0; margin:0;font-size:1px;align:absmiddle; }
+/*User html style*/
+.td4{ border:0px none; top:0; padding:0; margin:0;font-size:1px; }
+.td4_img{ top:0;width:auto;padding-left:0px;}
+/*Table style*/
+.DefaultTreeTable{table-layout:auto; top:0; overflow:auto;margin:0px;	padding:0px;	border:0px none;cellpadding:0;cellspacing:0; }
+
+
+
+
+
